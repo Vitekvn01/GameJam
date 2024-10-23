@@ -8,6 +8,20 @@ public class MovementController : MonoBehaviour
     void Start()
     {
         
+    private void Update()
+    {
+        SetDirection();
+
+        Movement();
+
+        Rotation();
+    }
+
+    private void SetDirection()
+    {
+        _normalizeRotX = Input.GetAxis("Mouse X");
+        _normalizeDirZ = Input.GetAxisRaw("Vertical");
+        _normalizeDirX = Input.GetAxisRaw("Horizontal");
     }
 
     // Update is called once per frame
