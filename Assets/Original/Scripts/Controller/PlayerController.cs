@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : SingletonBase<PlayerController>
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _rotationSpeed;
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private float _normalizeDirZ;
     private float _normalizeDirX;
-    
+
     private bool _isSpeedUp;
 
     private MovementLogic _movementLogic;
@@ -36,6 +36,11 @@ public class PlayerController : MonoBehaviour
         Movement();
 
         Rotation();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            CompassActivated();
+        }
     }
 
     private void CheckInput()
@@ -46,7 +51,7 @@ public class PlayerController : MonoBehaviour
         _normalizeDirZ = Input.GetAxisRaw("Vertical");
         _normalizeDirX = Input.GetAxisRaw("Horizontal");
 
-        _isSpeedUp = Input.GetAxisRaw("Run") > 0;
+        _isSpeedUp = Input.GetAxis("Run") > 0;
     }
 
     private void Movement()
@@ -58,5 +63,10 @@ public class PlayerController : MonoBehaviour
     {
         _movementLogic.RotationBody(_normalizeRotY, _rotationSensetive, _rotationSpeed);
         _camLogic.RotationCamera(_normalizeRotX, _rotationSensetive, _rotationSpeed);
+    }
+
+    private void CompassActivated()
+    {
+        CompassConroller.Instance.ConpassAtivated();
     }
 }
