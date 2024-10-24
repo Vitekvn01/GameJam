@@ -5,12 +5,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CompassLogic
 {
-    public CompassLogic(GameObject compassView, float time, float reloadTime, float radiusFind)
+    public CompassLogic(GameObject compassView, float time, float reloadTime, float radiusStopFind)
     {
         _compassView = compassView;
         _time = time;
         _reloadTime = reloadTime;
-        _radiusFind = radiusFind;
+        _radiusStopFind = radiusStopFind;
     }
 
     private GameObject _compassView;
@@ -19,7 +19,7 @@ public class CompassLogic
     private float _reloadTime;
     private float _timer;
 
-    private float _radiusFind;
+    private float _radiusStopFind;
 
     private bool _isActivated;
 
@@ -35,10 +35,8 @@ public class CompassLogic
             _timer += Time.deltaTime;
 
             RotateToTarget(target);
-/*            Debug.Log(_timer + " чутьё " + _time);*/
 
-            Debug.Log(Vector3.Distance(_compassView.transform.position, target.transform.position) <= _radiusFind);
-            if (_timer >= _time || Vector3.Distance(_compassView.transform.position, target.transform.position) <= _radiusFind)
+            if (_timer >= _time || Vector3.Distance(_compassView.transform.position, target.transform.position) <= _radiusStopFind)
             {
                 CompassHide();
                 _isActivated = false;

@@ -10,7 +10,7 @@ public class CompassConroller : SingletonBase<CompassConroller>
     [SerializeField] private float _time;
     [SerializeField] private float _reloadTime;
 
-    [SerializeField] private float _radiusFind;
+    [SerializeField] private float _radiusStopFind;
 
     private float _timer;
 
@@ -18,7 +18,7 @@ public class CompassConroller : SingletonBase<CompassConroller>
 
     private void Start()
     {
-        _compassLogic = new CompassLogic(_compass, _time, _reloadTime, _radiusFind);
+        _compassLogic = new CompassLogic(_compass, _time, _reloadTime, _radiusStopFind);
     }
 
     private void Update()
