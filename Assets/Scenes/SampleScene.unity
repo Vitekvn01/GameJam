@@ -726,6 +726,7 @@ MonoBehaviour:
   _compass: {fileID: 1385212134}
   _time: 10
   _reloadTime: 2
+  _radiusStopFind: 5
 --- !u!1 &1601555280
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +787,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 839d4ca42e0c86b4a8e14d726115dd4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
