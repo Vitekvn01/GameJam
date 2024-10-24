@@ -16,15 +16,13 @@ public class Inventory : MonoBehaviour
     public void AddList(string list)
     {  
         things.Add(list);
-        Debug.Log(things[0]);
-        Debug.Log(things.Count);
     }
 
     /// <summary>
     /// ”ничтожить вещь персонажа.
     /// </summary>
     /// <param name="list"></param>
-    private void RemoveList(string list)
+    public void RemoveList(string list)
     {
         for (int i = 0; i < things.Count; i++)
         {
@@ -34,6 +32,18 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public bool CheckList(string name)
+    {
+        for (int i = 0; i < things.Count; i++)
+        {
+            if (things[i] == name)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 

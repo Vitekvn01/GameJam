@@ -7,5 +7,5 @@ interface IDrop
     /// <summary>
     /// Метод интерфейса для выкидования предмета.
     /// </summary>
-    void drop();
+    void drop(Inventory inventory);
 }

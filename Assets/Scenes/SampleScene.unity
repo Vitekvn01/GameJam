@@ -447,8 +447,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 117.2
-  _rotationSpeed: 10
+  _rotationSpeed: 5
   _rotationSensetive: 1
+  _playerCam: {fileID: 963194225}
 --- !u!54 &1573275494
 Rigidbody:
   m_ObjectHideFlags: 0

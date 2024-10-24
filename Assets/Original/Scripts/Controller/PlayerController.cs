@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked; // Скрытие курсора с экрана
+
         _movementLogic = new MovementLogic(this.gameObject);
         _camLogic = new FPSCamLogic(_playerCam);
     }
