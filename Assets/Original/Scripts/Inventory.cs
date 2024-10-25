@@ -32,6 +32,7 @@ public class Inventory : MonoBehaviour
                 return;
             }
         }
+
     }
 
     public bool CheckList(string name)

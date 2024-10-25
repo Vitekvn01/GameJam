@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-interface IDrop
+public interface IDrop
 {
     /// <summary>
     /// Метод интерфейса для выкидования предмета.

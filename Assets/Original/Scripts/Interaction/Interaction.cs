@@ -12,6 +12,12 @@ public class Interaction : MonoBehaviour
     // Список обьектов с нужными тегами в зоне с которыми находимся.
     private List<GameObject> objects = new List<GameObject>();
 
+    private HitController CheckHit;
+
+    private void Start()
+    {
+        CheckHit = new HitController(gameObject);
+    }
 
     // Вход в зону поиска + добавление обьекта в список.
     private void OnTriggerEnter(Collider other)
@@ -23,6 +29,12 @@ public class Interaction : MonoBehaviour
         }
 
         if (other.gameObject.TryGetComponent<IDrop>(out IDrop drop))
+        {
+            searchIteam = true;
+            objects.Add(other.gameObject);
+        }
+
+        if(other.gameObject.TryGetComponent<IHide>(out IHide hide))
         {
             searchIteam = true;
             objects.Add(other.gameObject);
@@ -64,7 +76,8 @@ public class Interaction : MonoBehaviour
         {
             // Проверяем наличие интерфейса IPickup.
             if (hit.collider.gameObject.TryGetComponent<IPickup>(out IPickup pickup) ||
-                hit.collider.gameObject.TryGetComponent<IDrop>(out IDrop drop))
+                hit.collider.gameObject.TryGetComponent<IDrop>(out IDrop drop) ||
+                hit.collider.gameObject.TryGetComponent<IHide>(out IHide hider))
             {
                 for (int i = 0; i < objects.Count; i++)
                 {
@@ -77,32 +90,21 @@ public class Interaction : MonoBehaviour
                             // Проверяем подходящий ли обьект, записываем его.
                             IPickup pickupHit = hit.collider.gameObject.GetComponent<IPickup>();
                             IDrop dropHit = hit.collider.gameObject.GetComponent<IDrop>();
+                            IHide hide = hit.collider.gameObject.GetComponent<IHide>();
 
                             if (pickupHit != null)
                             {
-                                // Берем с обьекта инветарь.
-                                Inventory playerInventory = gameObject.GetComponentInParent<Inventory>();
-
-                                if (playerInventory != null)
-                                {
-                                    pickupHit.pickup(playerInventory);
-
-                                    //Убираем обьект из списка.
-                                    objects.RemoveAt(i);
-                                }
-
+                                // Обработка попадания по обьекту.
+                                CheckHit.Hit(pickupHit, objects, i);
                             }
                             else if (dropHit != null)
                             {
-                                // Берем с обьекта инветарь.
-                                Inventory playerInventory = gameObject.GetComponentInParent<Inventory>();
-
-                                if (playerInventory != null)
-                                {
-                                    dropHit.drop(playerInventory);
-                                    objects.RemoveAt(i);
-                                }
-
+                               // Обработка поподания по обьекту.
+                                CheckHit.Hit(dropHit, objects, i);
+                            }
+                            else if(hide != null)
+                            {
+                                CheckHit.Hit(hide, objects, i);
                             }
                         }
                     }
