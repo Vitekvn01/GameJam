@@ -7,11 +7,10 @@ using static UnityEditor.PlayerSettings;
 public class EnemyDetect : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private int distance = 33;
+    //[SerializeField] private int distance = 33;
 
     // Заметил ли бот врага.
     private bool angry = false;
-    private bool timerStart = false;
 
     // Для сброса режима.
     private float timer; 
@@ -20,7 +19,6 @@ public class EnemyDetect : MonoBehaviour
     private Interaction interaction;
     private CapsuleCollider capsuleCollider;
 
-    int layerMaskWithoutPlayer = 6;
 
     private void OnTriggerEnter(Collider other)
     {
