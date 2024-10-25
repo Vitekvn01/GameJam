@@ -31,14 +31,17 @@ public class PlayerController : SingletonBase<PlayerController>
     {
         CheckInput();
 
-        Movement();
-
         Rotation();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
             CompassActivated();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Movement();
     }
 
     private void CheckInput()
