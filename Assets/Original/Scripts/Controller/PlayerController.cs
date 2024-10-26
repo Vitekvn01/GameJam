@@ -68,6 +68,6 @@ public class PlayerController : SingletonBase<PlayerController>
 
     private void CompassActivated()
     {
-        CompassConroller.Instance.ConpassAtivated();
+        CompassController.Instance.CompassActivated();
     }
 }

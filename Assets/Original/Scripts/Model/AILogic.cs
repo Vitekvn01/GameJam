@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class AILogic
 {
     public AILogic(Transform[] waypoints, float distanceComplete, NavMeshAgent agent)
@@ -15,56 +17,86 @@ public class AILogic
 
 
     private Transform[] _waypoints;
+    private Transform _target;
+
+    private Vector3 _targetPos;
 
     private float _distanceComplete = 2;
-
     private int _currentWaypoint = 0;
 
     private NavMeshAgent _agent;
 
-    public void StartMovementPath()
+    public event Action OnCompleteMoveToTarget;
+
+    #region MovementToPos
+    private void MoveToTarget()
     {
-        if (_waypoints.Length > 0)
+        _agent.destination = _targetPos;
+    }
+    public void SetTargetPos(Vector3 pos)
+    {
+        _targetPos = pos;
+    }
+
+
+    public void MovementToTargetPos()
+    {
+        MoveToTarget();
+
+        if (CopmleteWaypoint(_targetPos, _distanceComplete))
         {
-            MoveToWaypoint(_waypoints[_currentWaypoint]);
+            OnCompleteMoveToTarget.Invoke();
         }
     }
 
-    private void SetCurrentWaypoint(int indexWaypoint)
+    #endregion
+
+
+    #region Chasing
+    public void SetTargetTranform(Transform target)
     {
-        _currentWaypoint = indexWaypoint;
+        _target = target;
     }
 
+
+    public void ChasingTarget()
+    {
+        _agent.destination = _target.position;
+    }
+
+    #endregion
+
+    #region WaypointsMovement
     private void MoveToWaypoint(Transform waypoint)
     {
         _agent.destination = waypoint.position;
     }
 
-    private bool CopmleteWaypoint(float distanceComplete)
+    private bool CopmleteWaypoint(Vector3 pos, float distanceComplete)
     {
-        if (_waypoints.Length > 0)
-        {
-            Debug.Log((Vector3.Distance(_agent.gameObject.transform.position, _waypoints[_currentWaypoint].position) < distanceComplete));
-            return (Vector3.Distance(_agent.gameObject.transform.position, _waypoints[_currentWaypoint].position) < distanceComplete);
-        }
-        else return false;
+
+        return (Vector3.Distance(_agent.gameObject.transform.position, pos) < distanceComplete);
 
     }
 
-    public void MovementPath()
+    public void MovementByWaypoints()
     {
-        if (CopmleteWaypoint(_distanceComplete))
+        MoveToWaypoint(_waypoints[_currentWaypoint]);
+
+        if (CopmleteWaypoint(_waypoints[_currentWaypoint].transform.position, _distanceComplete))
         {
             if (_currentWaypoint < _waypoints.Length - 1)
             {
                 _currentWaypoint++;
-                MoveToWaypoint(_waypoints[_currentWaypoint]);
             }
             else
             {
                 _currentWaypoint = 0;
-                MoveToWaypoint(_waypoints[_currentWaypoint]);
             }
         }
     }
+
+    #endregion
+
+
 }
