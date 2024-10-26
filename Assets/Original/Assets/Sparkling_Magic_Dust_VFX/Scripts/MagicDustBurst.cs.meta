@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: a5bc9a448de52c54e9d51b0a03b05f9b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299633
+  packageName: Sparkling Magic Dust
+  packageVersion: 1.0
+  assetPath: Assets/Sparkling_Magic_Dust_VFX/Scripts/MagicDustBurst.cs
+  uploadId: 701084

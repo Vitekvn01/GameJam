@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 31e237955b7fe5f4aa93c152736d9230
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 299633
+  packageName: Sparkling Magic Dust
+  packageVersion: 1.0
+  assetPath: Assets/Sparkling_Magic_Dust_VFX/Materials/Sparkling_Magic_Dust_mtl.mat
+  uploadId: 701084
