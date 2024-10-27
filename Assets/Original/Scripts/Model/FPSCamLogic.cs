@@ -13,10 +13,18 @@ public class FPSCamLogic
 
     }
 
-    public void RotationCamera(float dirRotX, float sensetive, float rotSpeed)
+    public void CursorLocked()
     {
         Cursor.lockState = CursorLockMode.Locked; // Скрытие курсора с экрана
+    }
 
+    public void CursorUnlocked()
+    {
+        Cursor.lockState = CursorLockMode.None; // Скрытие курсора с экрана
+    }
+
+    public void RotationCamera(float dirRotX, float sensetive, float rotSpeed)
+    {
         float rotationAmount = dirRotX * sensetive * rotSpeed;
 
         _currentXRotation -= rotationAmount;

@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : SingletonBase<PlayerController>
 {
+    [SerializeField] private GameObject _pauseControllerPrefab;
+    private PauseController _pauseController;
+
     [SerializeField] private float _speed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _rotationSensetive;
@@ -19,12 +22,14 @@ public class PlayerController : SingletonBase<PlayerController>
     private bool _isSpeedUp;
 
     private MovementLogic _movementLogic;
-    private FPSCamLogic _camLogic;
+    public FPSCamLogic CamLogic { get; private set; }
 
     private void Start()
     {
+        InitPauseController();
         _movementLogic = new MovementLogic(this.gameObject);
-        _camLogic = new FPSCamLogic(_playerCam);
+        CamLogic = new FPSCamLogic(_playerCam);
+        CamLogic.CursorLocked();
     }
 
     private void Update()
@@ -63,11 +68,16 @@ public class PlayerController : SingletonBase<PlayerController>
     private void Rotation()
     {
         _movementLogic.RotationBody(_normalizeRotY, _rotationSensetive, _rotationSpeed);
-        _camLogic.RotationCamera(_normalizeRotX, _rotationSensetive, _rotationSpeed);
+        CamLogic.RotationCamera(_normalizeRotX, _rotationSensetive, _rotationSpeed);
     }
 
     private void CompassActivated()
     {
         CompassController.Instance.CompassActivated();
+    }
+
+    private void InitPauseController()
+    {
+        _pauseController = Instantiate(_pauseControllerPrefab).GetComponent<PauseController>();
     }
 }
