@@ -24,4 +24,6 @@ public class PauseController : MonoBehaviour
     {
         _pausePanel.ShowPanel();
     }
+
+    // проверка
 }
