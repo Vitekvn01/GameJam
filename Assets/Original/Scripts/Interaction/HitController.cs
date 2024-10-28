@@ -52,4 +52,14 @@ public class HitController
             objects.RemoveAt(i);
         }
     }
+    public void Hit(IDoorController doorObject, List<GameObject> objects, int i)
+    {
+        // Берем с обьекта инветарь.
+        Inventory playerInventory = player.GetComponentInParent<Inventory>();
+
+        if (playerInventory != null)
+        {
+            doorObject.useDoor(player.transform.root.gameObject);
+        }
+    }
 }

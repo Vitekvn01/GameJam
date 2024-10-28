@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class Interaction : MonoBehaviour
@@ -35,6 +36,13 @@ public class Interaction : MonoBehaviour
         }
 
         if(other.gameObject.TryGetComponent<IHide>(out IHide hide))
+        {
+            searchIteam = true;
+            objects.Add(other.gameObject);
+        }
+
+
+        if (other.gameObject.TryGetComponent<IDoorController>(out IDoorController doorTry))
         {
             searchIteam = true;
             objects.Add(other.gameObject);
@@ -74,10 +82,13 @@ public class Interaction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            UnityEngine.Debug.Log(hit.collider.gameObject);
+
             // Проверяем наличие интерфейса IPickup.
             if (hit.collider.gameObject.TryGetComponent<IPickup>(out IPickup pickup) ||
                 hit.collider.gameObject.TryGetComponent<IDrop>(out IDrop drop) ||
-                hit.collider.gameObject.TryGetComponent<IHide>(out IHide hider))
+                hit.collider.gameObject.TryGetComponent<IHide>(out IHide hider) ||
+                hit.collider.gameObject.TryGetComponent<IDoorController>(out IDoorController door))
             {
                 for (int i = 0; i < objects.Count; i++)
                 {
@@ -91,6 +102,7 @@ public class Interaction : MonoBehaviour
                             IPickup pickupHit = hit.collider.gameObject.GetComponent<IPickup>();
                             IDrop dropHit = hit.collider.gameObject.GetComponent<IDrop>();
                             IHide hide = hit.collider.gameObject.GetComponent<IHide>();
+                            IDoorController doorController = hit.collider.gameObject.GetComponent<IDoorController>();
 
                             if (pickupHit != null)
                             {
@@ -105,6 +117,10 @@ public class Interaction : MonoBehaviour
                             else if(hide != null)
                             {
                                 CheckHit.Hit(hide, objects, i);
+                            }
+                            else if (doorController != null)
+                            {
+                                CheckHit.Hit(doorController, objects, i);
                             }
                         }
                     }
