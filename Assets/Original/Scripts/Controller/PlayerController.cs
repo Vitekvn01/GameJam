@@ -73,7 +73,10 @@ public class PlayerController : SingletonBase<PlayerController>
 
     private void CompassActivated()
     {
-        CompassController.Instance.CompassActivated();
+        if (CompassController.Instance != null)
+        {
+            CompassController.Instance.CompassActivated();
+        }
     }
 
     private void InitPauseController()
