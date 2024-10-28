@@ -75,11 +75,12 @@ public class Interaction : MonoBehaviour
             RaycastObject();
         }
 
+        /*
         for (int i = 0; i < objects.Count; i++)
         {
             UnityEngine.Debug.Log(objects[i]);
         }
-
+        */
         
     }
 
@@ -103,13 +104,9 @@ public class Interaction : MonoBehaviour
             {
                 for (int i = 0; i < objects.Count; i++)
                 {
-                    UnityEngine.Debug.Log(hit.collider);
-
                     // Проверяем смотрим ли мы на тот обьект в чей зоне находимся.
                     if (hit.collider.gameObject == objects[i])
                     {
-                        
-
                         //Проверяем нажатие кнопки.
                         if (Input.GetKeyDown(KeyCode.F))
                         {
