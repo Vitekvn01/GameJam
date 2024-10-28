@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class SubtitlesController : MonoBehaviour
+public class SubtitlesController : SingletonBase<SubtitlesController>
 {
     [SerializeField] private bool _isPlaySubtitles;
+    private bool _isActivated;
 
     [SerializeField] private GameObject _panelSubtitles;
 
@@ -23,7 +24,7 @@ public class SubtitlesController : MonoBehaviour
 
     [SerializeField] private float _endTime;
 
-    [SerializeField] private UnityEvent _endSubtitles;
+    [SerializeField] public UnityEvent OnEndSubtitles = new UnityEvent();
 
 
     private float timer = 0;
@@ -70,16 +71,17 @@ public class SubtitlesController : MonoBehaviour
         {
             _isPlaySubtitles = false;
             index = 0;
-            _endSubtitles.Invoke();
+            OnEndSubtitles.Invoke();
             gameObject.SetActive(false);
         }
     }
 
-    private void StartPrologue(List<SubtitlesString> subtitlesContainer)
+    public void StartPrologue(List<SubtitlesString> subtitlesContainer)
     {
         _currentSubtitlesContainer = subtitlesContainer;
         index = 0;
         _panelSubtitles.SetActive(true);
         DrawText();
     }
+
 }

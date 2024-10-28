@@ -6,6 +6,6 @@ public class QuestPerson : MonoBehaviour, IQuestPerson
 {
     public void dialog(GameObject gameObject)
     {
-        Debug.Log("dialog");
+        this.GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
     }
 }
