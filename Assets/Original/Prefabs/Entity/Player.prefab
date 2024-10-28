@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 3514227160337491151}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.611, z: 0.881}
+  m_LocalPosition: {x: 0, y: -0.611, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 1344108860659771154}
   - component: {fileID: 2327416147249568463}
   - component: {fileID: 3927933434221088592}
+  - component: {fileID: 4526645005493173930}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -68,6 +69,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5448708155000686562}
   - {fileID: 5489227345213111221}
   - {fileID: 4571393389554200811}
   m_Father: {fileID: 0}
@@ -87,7 +89,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6020781273117721376}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -141,7 +143,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -207,7 +209,87 @@ MonoBehaviour:
   _compass: {fileID: 3514227160337491151}
   _time: 10
   _reloadTime: 2
-  _radiusStopFind: 5
+  _radiusStopFind: 1
+--- !u!114 &4526645005493173930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6020781273117721376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68135cad9c4bab240b5efe159d877e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6052877148037650788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5448708155000686562}
+  - component: {fileID: 1900431157652397063}
+  - component: {fileID: 132486654149066791}
+  m_Layer: 6
+  m_Name: InteractionZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5448708155000686562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052877148037650788}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7463, y: 0.91786, z: 0.91786}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7728288831279439828}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1900431157652397063
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052877148037650788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.7754798
+  m_Height: 5.6888494
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0.14168622}
+--- !u!114 &132486654149066791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6052877148037650788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e14d2426c425f64f828b1f5281d4f34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6901435917440762004
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +334,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.41509432, g: 0.064613745, b: 0.064613745, a: 1}
-  m_Intensity: 15
+  m_Intensity: 12.5
   m_Range: 3.5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -405,6 +487,10 @@ PrefabInstance:
     - target: {fileID: 7000061466730574505, guid: 6e408ec98ddc7cc48b6b9f5964df29a2, type: 3}
       propertyPath: m_Name
       value: CompassPNG
+      objectReference: {fileID: 0}
+    - target: {fileID: 7000061466730574505, guid: 6e408ec98ddc7cc48b6b9f5964df29a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7991319984774056839, guid: 6e408ec98ddc7cc48b6b9f5964df29a2, type: 3}
       propertyPath: m_LocalScale.x
