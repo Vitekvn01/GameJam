@@ -502,7 +502,7 @@ Transform:
   m_GameObject: {fileID: 425967225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.429, y: 5.691, z: 1.7}
+  m_LocalPosition: {x: -0.429, y: 6.096, z: 1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -517,8 +517,52 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _endTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
       propertyPath: _isPlaySubtitles
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[0].Name
+      value: "\u0414\u0436\u0435\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[0].Text
+      value: "\u042D\u0442\u043E \u043D\u0435 \u0442\u043E, \u0447\u0442\u043E \u044F
+        \u043E\u0436\u0438\u0434\u0430\u043B \u0443\u0432\u0438\u0434\u0435\u0442\u044C."
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[1].Name
+      value: "\u0414\u0436\u0435\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[1].Text
+      value: "\u0428\u0435\u043B\u043B\u0438? \u0413\u0434\u0435 \u0442\u044B?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[2].Name
+      value: "\u0414\u0436\u0435\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[2].Text
+      value: "\u0412\u0438\u0434\u0438\u043C\u043E \u043A\u043E\u0448\u043C\u0430\u0440\u044B
+        \u0441\u0438\u043B\u044C\u043D\u043E \u0437\u0430\u0441\u0435\u043B\u0438
+        \u0443 \u043C\u0430\u043B\u044B\u0448\u043A\u0438 \u0432 \u0433\u043E\u043B\u043E\u0432\u0435."
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[3].Name
+      value: "\u0414\u0436\u0435\u043A"
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: _currentSubtitlesContainer.Array.data[3].Text
+      value: "\u041D\u043E \u043F\u043E\u0447\u0435\u043C\u0443 \u043A\u043E\u043C\u043D\u0430\u0442\u0430
+        \u0442\u0430\u043A \u043F\u0440\u0435\u043E\u0431\u0440\u0430\u0437\u0438\u043B\u0430\u0441\u044C?"
       objectReference: {fileID: 0}
     - target: {fileID: 3246818879813534081, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
       propertyPath: m_Pivot.x
@@ -1290,8 +1334,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isActivated: 1
   _subtitlesList:
-  - Name: bear
-    Text: arrrrrrrrrrrrrrrrrrrrr
+  - Name: "\u0414\u0436\u0435\u043A"
+    Text: "\u0414\u043E\u043B\u0436\u043D\u043E \u0431\u044B\u0442\u044C \u044D\u0442\u043E
+      \u0442\u043E\u0442 \u0441\u0430\u043C\u044B\u0439 \u0437\u0430\u0449\u0438\u0442\u043D\u0438\u043A
+      \u0428\u0435\u043B\u043B\u0438. \u0421\u0442\u043E\u0438\u0442 \u043F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C
+      \u0432\u0435\u0440\u043D\u0443\u0442\u044C \u0435\u0433\u043E \u0432\u043B\u0430\u0434\u0435\u043B\u0438\u0446\u0435."
   _onEndSubtitles:
     m_PersistentCalls:
       m_Calls: []
@@ -2037,6 +2084,8 @@ GameObject:
   - component: {fileID: 1608276488}
   - component: {fileID: 1608276487}
   - component: {fileID: 1608276491}
+  - component: {fileID: 1608276492}
+  - component: {fileID: 1608276493}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -2155,6 +2204,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1608276492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608276486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49f97108e8820d40ad13c9a34cb4bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isActivated: 1
+  _subtitlesList:
+  - Name: "\u0414\u0436\u0435\u043A"
+    Text: "\u041D\u0435 \u043F\u043E\u0434\u0434\u0430\u0435\u0442\u0441\u044F, \u0447\u0442\u043E-\u0442\u043E
+      \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442 \u0435\u0435."
+  - Name: "\u0414\u0436\u0435\u043A"
+    Text: "\u041D\u0443\u0436\u043D\u043E \u043F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u0442\u044C
+      \u043D\u0430\u0439\u0442\u0438 \u0434\u0440\u0443\u0433\u043E\u0439 \u043F\u0443\u0442\u044C."
+  _onEndSubtitles:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1608276493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608276486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef95ef20ba99f647829dff18cb95a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746623464
 GameObject:
   m_ObjectHideFlags: 0
