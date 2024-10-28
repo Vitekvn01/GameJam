@@ -28,5 +28,12 @@ public class DoorController : MonoBehaviour,IDoorController
                 animDoor.SetBool("Open", false);
             }
         }
+        else
+        {
+            if (gameObject.TryGetComponent(out SubtitlesContainer Subtitles))
+            {
+                Subtitles.PlaySubtitlesContainer();
+            }
+        }
     }
 }

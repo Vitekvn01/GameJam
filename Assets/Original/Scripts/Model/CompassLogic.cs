@@ -18,6 +18,7 @@ public class CompassLogic
     private void RotateToTarget(GameObject target)
     {
         _compassView.transform.LookAt(target.transform.position, Vector3.up);
+/*        _compassView.transform.localRotation = Quaternion.Euler(0, _compassView.transform.rotation.y, 0);*/
     }
 
     public void CompassIndicates()
