@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CompassTest.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/NavMeshTest.unity
+    guid: d84639b165623dd4b8f85bce89dae983
   m_configObjects: {}

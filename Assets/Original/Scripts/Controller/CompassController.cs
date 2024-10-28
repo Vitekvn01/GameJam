@@ -46,7 +46,7 @@ public class CompassController : SingletonBase<CompassController>
 
     public void CompassActivated()
     {
-        if (_timer > _reloadTime && _isActivated == false)
+        if (_timer > _reloadTime && _isActivated == false && _target != null)
         {
             _isActivated = true;
             _compassLogic.CompassShow();
@@ -70,7 +70,11 @@ public class CompassController : SingletonBase<CompassController>
 
     public void AttractEnemy()
     {
-        EnemyController.Instance.SendNearestEnemy(transform.position);
+        if(EnemyController.Instance != null)
+        {
+            EnemyController.Instance.SendNearestEnemy(transform.position);
+        }
+
     }
 
 }
