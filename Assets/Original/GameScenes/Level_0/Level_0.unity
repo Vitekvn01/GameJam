@@ -3634,7 +3634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 511086493387804045, guid: ee0ada6350fd1d5408e7d2edca6f04c4, type: 3}
       propertyPath: _onFadeComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 511086493387804045, guid: ee0ada6350fd1d5408e7d2edca6f04c4, type: 3}
       propertyPath: _onFadeComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
