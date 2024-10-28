@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IQuestPerson
 {
-    public void dialog(GameObject gameObject);
+    public void dialog();
 }

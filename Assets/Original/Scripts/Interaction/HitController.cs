@@ -69,12 +69,6 @@ public class HitController
 
     public void Hit(IQuestPerson questPerson, List<GameObject> objects, int i)
     {
-        // Берем с обьекта инветарь.
-        Inventory playerInventory = player.GetComponentInParent<Inventory>();
-
-        if (playerInventory != null)
-        {
-            questPerson.dialog(player.transform.root.gameObject);
-        }
+        questPerson.dialog();   
     }
 }

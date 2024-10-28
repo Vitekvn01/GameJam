@@ -74,6 +74,13 @@ public class Interaction : MonoBehaviour
         {
             RaycastObject();
         }
+
+        for (int i = 0; i < objects.Count; i++)
+        {
+            UnityEngine.Debug.Log(objects[i]);
+        }
+
+        
     }
 
     /// <summary>
@@ -87,8 +94,6 @@ public class Interaction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            UnityEngine.Debug.Log(hit.collider.gameObject);
-
             // Проверяем наличие интерфейса IPickup.
             if (hit.collider.gameObject.TryGetComponent<IPickup>(out IPickup pickup) ||
                 hit.collider.gameObject.TryGetComponent<IDrop>(out IDrop drop) ||
@@ -98,9 +103,13 @@ public class Interaction : MonoBehaviour
             {
                 for (int i = 0; i < objects.Count; i++)
                 {
+                    UnityEngine.Debug.Log(hit.collider);
+
                     // Проверяем смотрим ли мы на тот обьект в чей зоне находимся.
                     if (hit.collider.gameObject == objects[i])
                     {
+                        
+
                         //Проверяем нажатие кнопки.
                         if (Input.GetKeyDown(KeyCode.F))
                         {
@@ -142,8 +151,9 @@ public class Interaction : MonoBehaviour
 
     private void CheckObjects()
     {
-        int counterObjects = 0;
+        //int counterObjects = 0;
 
+        /*
         for (int i = 0; i < objects.Count; i++)
         {
             if (objects[i] != null)
@@ -153,6 +163,12 @@ public class Interaction : MonoBehaviour
         }
 
         if(counterObjects == objects.Count)
+        {
+            searchIteam = false;
+        }
+        */
+
+        if(objects.Count == 0)
         {
             searchIteam = false;
         }

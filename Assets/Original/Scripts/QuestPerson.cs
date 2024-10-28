@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class QuestPerson : MonoBehaviour, IQuestPerson
 {
-    public void dialog(GameObject gameObject)
+    public void dialog()
     {
-        this.GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
+        //GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
+
+        Debug.Log("mather privet");
     }
 }
