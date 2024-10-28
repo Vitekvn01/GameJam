@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class PausePanel : MonoBehaviour
 {
     [SerializeField] private GameObject _settingsPanel;
+    [SerializeField] private GameObject _buttonPanel;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class PausePanel : MonoBehaviour
 
     public void SettingsButton()
     {
+        _buttonPanel.SetActive(false);
         _settingsPanel.SetActive(true);
     }
 
