@@ -11,6 +11,7 @@ public class HitController
         player = gameObject;
     }
 
+    // Хит для поднятия.
     public void Hit(IPickup pickupInterfaceObject, List<GameObject> objects, int i)
     {
         // Берем с обьекта инветарь.
@@ -25,6 +26,7 @@ public class HitController
         }
     }
 
+    // Хит для отдачи.
     public void Hit(IDrop dropInterfaceObject, List<GameObject> objects, int i)
     {
         // Берем с обьекта инветарь.
@@ -38,6 +40,7 @@ public class HitController
             objects.RemoveAt(i);
         }
     }
+    // Хит для пряток.
     public void Hit(IHide HideInterfaceObject, List<GameObject> objects, int i)
     {
         // Берем с обьекта инветарь.
@@ -52,6 +55,7 @@ public class HitController
             objects.RemoveAt(i);
         }
     }
+    // Хит для дверей.
     public void Hit(IDoorController doorObject, List<GameObject> objects, int i)
     {
         // Берем с обьекта инветарь.
@@ -60,6 +64,17 @@ public class HitController
         if (playerInventory != null)
         {
             doorObject.useDoor(player.transform.root.gameObject);
+        }
+    }
+
+    public void Hit(IQuestPerson questPerson, List<GameObject> objects, int i)
+    {
+        // Берем с обьекта инветарь.
+        Inventory playerInventory = player.GetComponentInParent<Inventory>();
+
+        if (playerInventory != null)
+        {
+            questPerson.dialog(player.transform.root.gameObject);
         }
     }
 }

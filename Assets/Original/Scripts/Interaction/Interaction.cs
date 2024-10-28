@@ -41,8 +41,13 @@ public class Interaction : MonoBehaviour
             objects.Add(other.gameObject);
         }
 
-
         if (other.gameObject.TryGetComponent<IDoorController>(out IDoorController doorTry))
+        {
+            searchIteam = true;
+            objects.Add(other.gameObject);
+        }
+
+        if(other.gameObject.TryGetComponent<IQuestPerson>(out IQuestPerson personTry))
         {
             searchIteam = true;
             objects.Add(other.gameObject);
@@ -88,7 +93,8 @@ public class Interaction : MonoBehaviour
             if (hit.collider.gameObject.TryGetComponent<IPickup>(out IPickup pickup) ||
                 hit.collider.gameObject.TryGetComponent<IDrop>(out IDrop drop) ||
                 hit.collider.gameObject.TryGetComponent<IHide>(out IHide hider) ||
-                hit.collider.gameObject.TryGetComponent<IDoorController>(out IDoorController door))
+                hit.collider.gameObject.TryGetComponent<IDoorController>(out IDoorController door) ||
+                hit.collider.gameObject.TryGetComponent<IQuestPerson>(out IQuestPerson questPerson))
             {
                 for (int i = 0; i < objects.Count; i++)
                 {
@@ -103,6 +109,7 @@ public class Interaction : MonoBehaviour
                             IDrop dropHit = hit.collider.gameObject.GetComponent<IDrop>();
                             IHide hide = hit.collider.gameObject.GetComponent<IHide>();
                             IDoorController doorController = hit.collider.gameObject.GetComponent<IDoorController>();
+                            IQuestPerson person = hit.collider.gameObject.GetComponent<IQuestPerson>();
 
                             if (pickupHit != null)
                             {
@@ -111,16 +118,20 @@ public class Interaction : MonoBehaviour
                             }
                             else if (dropHit != null)
                             {
-                               // Обработка поподания по обьекту.
+                                // Обработка поподания по обьекту.
                                 CheckHit.Hit(dropHit, objects, i);
                             }
-                            else if(hide != null)
+                            else if (hide != null)
                             {
                                 CheckHit.Hit(hide, objects, i);
                             }
                             else if (doorController != null)
                             {
                                 CheckHit.Hit(doorController, objects, i);
+                            }
+                            else if (person != null)
+                            {
+                                CheckHit.Hit(person, objects, i);
                             }
                         }
                     }
