@@ -465,7 +465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a7531ab55fa4a4ebfbe15e97ddaed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPlaySubtitles: 1
+  _doNotDestroyOnLoad: 0
+  _isPlaySubtitles: 0
   _panelSubtitles: {fileID: 7848244490389511}
   _currentSubtitlesContainer:
   - Name: "\u0420\u0430\u0437\u0440\u0430\u0431 \u0433\u0438\u0442\u0430"
@@ -483,6 +484,6 @@ MonoBehaviour:
   _textSubtitles: {fileID: 2239223433997235585}
   _nameSubtitles: {fileID: 5272145702843961188}
   _endTime: 5
-  _endSubtitles:
+  OnEndSubtitles:
     m_PersistentCalls:
       m_Calls: []
