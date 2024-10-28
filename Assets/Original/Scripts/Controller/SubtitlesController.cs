@@ -72,12 +72,13 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
             _isPlaySubtitles = false;
             index = 0;
             OnEndSubtitles.Invoke();
-            gameObject.SetActive(false);
+            _panelSubtitles.SetActive(false);
         }
     }
 
     public void StartPrologue(List<SubtitlesString> subtitlesContainer)
     {
+        _isPlaySubtitles = true;
         _currentSubtitlesContainer = subtitlesContainer;
         index = 0;
         _panelSubtitles.SetActive(true);
