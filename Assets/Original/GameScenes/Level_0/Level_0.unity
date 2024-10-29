@@ -3418,7 +3418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _doNotDestroyOnLoad: 0
-  _pauseControllerPrefab: {fileID: 7284558873173051419, guid: b8ccab62e95649246b5f09027304b92f, type: 3}
+  _pauseControllerPrefab: {fileID: 8040507727622549202, guid: 59d46a635ad959140aab44efcabb0022, type: 3}
   _speed: 117.2
   _rotationSpeed: 2
   _rotationSensetive: 1
