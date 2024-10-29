@@ -1047,6 +1047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mother3
       objectReference: {fileID: 0}
+    - target: {fileID: 6064579600777883467, guid: 91eeff80d047ad3458f1338e266caa18, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5f1b72a22f1fad545baad8847a735a0e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
