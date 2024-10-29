@@ -1573,19 +1573,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.685
+      value: 2.627
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1199992
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.312
+      value: 0.909
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.83261234
+      value: 0.71390766
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1593,7 +1593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.55385625
+      value: -0.70023996
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1605,7 +1605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -67.264
+      value: -88.893
       objectReference: {fileID: 0}
     - target: {fileID: 1127007276094738924, guid: 9c353269fe37e864ab1410a03b073c09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -2798,7 +2798,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688322291}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 84bd8c71061042d4cba081b63fa337e3, type: 3}
   m_Controller: {fileID: 9100000, guid: ca0bc971c9701a14b8ac7a7fdd6c3375, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -2829,10 +2829,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.3528987
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.60035455, z: 0}
+  m_Radius: 0.38
+  m_Height: 1.87
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!114 &1688322296
 MonoBehaviour:
   m_ObjectHideFlags: 0
