@@ -8,7 +8,9 @@ public class QuestDrop : MonoBehaviour, IDrop
     [SerializeField]private string QuestNameThing;
     [SerializeField] private GameObject prefabQuestThing;
     [SerializeField] private Transform spawnPosition;
-    
+
+    [SerializeField] private GameObject destroyObject;
+
     public void drop(Inventory inventory)
     {
         if(inventory.CheckList(QuestNameThing) == true )
@@ -17,6 +19,11 @@ public class QuestDrop : MonoBehaviour, IDrop
             inventory.RemoveList(QuestNameThing);
             // Создаем квестовый предмет из префаба.
             Instantiate(prefabQuestThing, spawnPosition);
+
+            if(destroyObject != null)
+            {
+                Destroy(destroyObject);
+            }
 
             // Получаем обьект который запускает анимацию.
             QuestComplete questComplete = GetComponent<QuestComplete>();
