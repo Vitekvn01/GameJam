@@ -23,7 +23,11 @@ public class CompassLogic
 
     public void CompassIndicates()
     {
-        RotateToTarget(_target);
+        if (_target != null)
+        {
+            RotateToTarget(_target);
+        }
+
     }
 
 

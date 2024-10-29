@@ -11,7 +11,7 @@ public class SettingsPanel : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
+
 /*
         if (!Screen.fullScreen)
         {

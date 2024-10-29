@@ -3721,6 +3721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasSleep
       objectReference: {fileID: 0}
+    - target: {fileID: 5458136726983254675, guid: ee0ada6350fd1d5408e7d2edca6f04c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6964154359052658768, guid: ee0ada6350fd1d5408e7d2edca6f04c4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
