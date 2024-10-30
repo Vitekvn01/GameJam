@@ -100,6 +100,31 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
     //public void StartPrologue(List<SubtitlesString> subtitlesContainer)
     public void StartPrologue(List<SubtitlesString> subtitlesContainer, bool stateContainer, GameObject gameThing)
     {
+        // Проверка на то, запущен ли уже диалог.
+        if(_panelSubtitles == true)
+        {
+            
+            if(workWhitObject != null)
+            {
+
+                workWhitObject.TryGetComponent<InteractionObject>(out InteractionObject interObject);
+
+                if (interObject != null)
+                {
+                    if (state == true)
+                    {
+                        interObject.ChangeState(false);
+                    }
+                    else
+                    {
+                        interObject.ChangeState(true);
+                    }
+                }
+            }
+            
+            
+        }
+
         workWhitObject = gameThing; //!!!!
         state = stateContainer;
 

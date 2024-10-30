@@ -49,7 +49,5 @@ public class InteractionUIController : MonoBehaviour
         {
             canvasInteraction.SetActive(false);
         }
-        
-
     }
 }

@@ -142,12 +142,14 @@ public class Interaction : MonoBehaviour
                             }
                             else if (person != null)
                             {
-                                // Обработка диалогов.
                                 CheckHit.Hit(person, objects, i);
                                 if(interactionObject != null)
                                 {
                                     interactionObject.ChangeState(false);
                                 }
+                            }
+                                // Обработка диалогов.
+                                
                                 
                             }
                         }
@@ -155,8 +157,7 @@ public class Interaction : MonoBehaviour
                 }
             }
         }
-    }
-
+ 
     private void CheckObjects()
     {
         //int counterObjects = 0;
