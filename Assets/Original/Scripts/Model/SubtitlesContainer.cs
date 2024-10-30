@@ -30,6 +30,7 @@ public class SubtitlesContainer : MonoBehaviour
             SubtitlesController.Instance.StartPrologue(_subtitlesList);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(OnEndSubtiles);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(DisactivatedSubtitlesContainer);
+            SubtitlesController.Instance.OnEndSubtitles.AddListener(Delete);
         }
         else
         {
@@ -39,12 +40,18 @@ public class SubtitlesContainer : MonoBehaviour
 
     public void ActivatedSubtitlesContainer()
     {
+        Debug.Log("ƒт=иалог активен" + gameObject.name + _isActivated);
         _isActivated = true;
     }
 
     public void DisactivatedSubtitlesContainer()
     {
         _isActivated = false;
+    }
+
+    public void Delete()
+    {
+        Destroy(this);
     }
 
     public void OnEndSubtiles()
