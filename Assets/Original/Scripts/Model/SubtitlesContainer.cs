@@ -24,7 +24,7 @@ public class SubtitlesContainer : MonoBehaviour
 
     public void PlaySubtitlesContainer()
     {
-        if (_isActivated)
+        if (_isActivated && SubtitlesController.Instance.IsLock == false)
         {
             //SubtitlesController.Instance.StartPrologue(_subtitlesList);
             SubtitlesController.Instance.StartPrologue(_subtitlesList, _isActivated, gameObject);
