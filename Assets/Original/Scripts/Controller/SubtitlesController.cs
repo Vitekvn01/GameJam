@@ -24,6 +24,8 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
 
     [SerializeField] private float _endTime;
 
+    private bool _isLock = false;
+
     [SerializeField] public UnityEvent OnEndSubtitles = new UnityEvent();
 
     private GameObject workWhitObject; // !!!!!!!!
@@ -73,6 +75,7 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
         {
             _isPlaySubtitles = false;
             index = 0;
+            _isLock = false;
             OnEndSubtitles.Invoke();
             _panelSubtitles.SetActive(false);
 
@@ -127,12 +130,16 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
 
         workWhitObject = gameThing; //!!!!
         state = stateContainer;
+        if (!_isLock)
+        {
+            _isPlaySubtitles = true;
+            _currentSubtitlesContainer = subtitlesContainer;
+            index = 0;
+            _panelSubtitles.SetActive(true);
+            DrawText();
+            _isLock = true;
+        }
 
-        _isPlaySubtitles = true;
-        _currentSubtitlesContainer = subtitlesContainer;
-        index = 0;
-        _panelSubtitles.SetActive(true);
-        DrawText();
     }
 
 }
