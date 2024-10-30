@@ -144,7 +144,11 @@ public class Interaction : MonoBehaviour
                             {
                                 // Обработка диалогов.
                                 CheckHit.Hit(person, objects, i);
-                                interactionObject.ChangeState(false);
+                                if(interactionObject != null)
+                                {
+                                    interactionObject.ChangeState(false);
+                                }
+                                
                             }
                         }
                     }

@@ -81,14 +81,18 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
             {
                 workWhitObject.TryGetComponent<InteractionObject>(out InteractionObject interObject);
                 
-                if(state == true)
+                if(interObject != null)
                 {
-                    interObject.ChangeState(false);
+                    if(state == true)
+                    {
+                        interObject.ChangeState(false);
+                    }
+                    else
+                    {
+                        interObject.ChangeState(true);
+                    }
                 }
-                else
-                {
-                    interObject.ChangeState(true);
-                }
+               
             }
         }
     }
