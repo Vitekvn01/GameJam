@@ -106,10 +106,8 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
         // Проверка на то, запущен ли уже диалог.
         if(_panelSubtitles == true)
         {
-            
             if(workWhitObject != null)
             {
-
                 workWhitObject.TryGetComponent<InteractionObject>(out InteractionObject interObject);
 
                 if (interObject != null)
@@ -124,8 +122,6 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
                     }
                 }
             }
-            
-            
         }
 
         workWhitObject = gameThing; //!!!!
