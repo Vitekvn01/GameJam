@@ -6,6 +6,12 @@ public class QuestPerson : MonoBehaviour, IQuestPerson
 {
     public void dialog()
     {
-        GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
+        if (GetComponent<SubtitlesContainer>() != null)
+        {
+            GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
+        }
+
+
+        Debug.Log("mather privet");
     }
 }
