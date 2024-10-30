@@ -7,9 +7,15 @@ public class EnemyDetect : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private int distance = 33;
+    private AIController _aIController;
 
     private int layer = ~0; // Проверка всех слоев.
     private bool angry;     // Переход в режим преследования.
+
+    private void Start()
+    {
+        _aIController = GetComponent<AIController>();
+    }
 
     private void Update()
     {

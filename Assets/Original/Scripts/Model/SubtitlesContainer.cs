@@ -18,6 +18,7 @@ public class SubtitlesContainer : MonoBehaviour
     [SerializeField] bool _isActivated = false;
 
     [SerializeField] private List<SubtitlesString> _subtitlesList = new List<SubtitlesString>();
+    [SerializeField] private List<SubtitlesString> _disactiveSubtitlesList = new List<SubtitlesString>();
 
     [SerializeField] private UnityEvent _onEndSubtitles = new UnityEvent();
 
@@ -29,6 +30,11 @@ public class SubtitlesContainer : MonoBehaviour
             SubtitlesController.Instance.StartPrologue(_subtitlesList);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(OnEndSubtiles);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(DisactivatedSubtitlesContainer);
+            Destroy(this);
+        }
+        else
+        {
+            SubtitlesController.Instance.StartPrologue(_disactiveSubtitlesList);
         }
     }
 
