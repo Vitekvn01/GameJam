@@ -26,6 +26,8 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
 
     [SerializeField] public UnityEvent OnEndSubtitles = new UnityEvent();
 
+    private GameObject workWhitObject; // !!!!!!!!
+    private bool state;
 
     private float timer = 0;
     private int index = 0;
@@ -73,11 +75,30 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
             index = 0;
             OnEndSubtitles.Invoke();
             _panelSubtitles.SetActive(false);
+
+            //!!!!
+            if(workWhitObject != null)
+            {
+                workWhitObject.TryGetComponent<InteractionObject>(out InteractionObject interObject);
+                
+                if(state == true)
+                {
+                    interObject.ChangeState(false);
+                }
+                else
+                {
+                    interObject.ChangeState(true);
+                }
+            }
         }
     }
 
-    public void StartPrologue(List<SubtitlesString> subtitlesContainer)
+    //public void StartPrologue(List<SubtitlesString> subtitlesContainer)
+    public void StartPrologue(List<SubtitlesString> subtitlesContainer, bool stateContainer, GameObject gameThing)
     {
+        workWhitObject = gameThing; //!!!!
+        state = stateContainer;
+
         _isPlaySubtitles = true;
         _currentSubtitlesContainer = subtitlesContainer;
         index = 0;

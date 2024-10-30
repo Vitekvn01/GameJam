@@ -37,7 +37,7 @@ public class HitController
             dropInterfaceObject.drop(playerInventory);
 
             //Убираем обьект из списка.
-            objects.RemoveAt(i);
+            //objects.RemoveAt(i);  
         }
     }
     // Хит для пряток.

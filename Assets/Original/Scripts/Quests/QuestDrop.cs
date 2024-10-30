@@ -13,7 +13,9 @@ public class QuestDrop : MonoBehaviour, IDrop
 
     public void drop(Inventory inventory)
     {
-        if(inventory.CheckList(QuestNameThing) == true )
+        Debug.Log("zashly");
+
+        if (inventory.CheckList(QuestNameThing) == true )
         {
             // ”ничтожаем из списка квестовый предмет.
             inventory.RemoveList(QuestNameThing);
@@ -30,6 +32,13 @@ public class QuestDrop : MonoBehaviour, IDrop
             questComplete.FinishQuest();
 
             gameObject.GetComponent<InteractionObject>().ChangeState(false);
+        }
+        else
+        {
+            if (GetComponent<SubtitlesContainer>() != null)
+            {
+                GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
+            }
         }
             
     }

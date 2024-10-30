@@ -27,7 +27,6 @@ public class InteractionUIController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit,distance))
         {
-            Debug.Log(hit.collider.gameObject);
             if(hit.collider.gameObject.TryGetComponent<InteractionObject>(out InteractionObject interactionObject))
             {
 

@@ -396,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef95ef20ba99f647829dff18cb95a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndDialog: 0
 --- !u!114 &129679766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,6 +1951,14 @@ PrefabInstance:
       propertyPath: _endTime
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: OnEndSubtitles.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
+      propertyPath: OnEndSubtitles.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3246818879813534081, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2773,9 +2782,9 @@ MonoBehaviour:
       \u0441\u0432\u043E\u044E \u0445\u043E\u0437\u044F\u0439\u043A\u0443. \u0410
       \u0442\u0435\u043F\u0435\u0440\u044C \u0437\u0430\u0441\u044B\u043F\u0430\u0439\u2026"
   _disactiveSubtitlesList:
-  - Name: 
-    Text: "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043C\u043E\u0433\u0443
-      \u0441\u043A\u0430\u0437\u0430\u0442\u044C"
+  - Name: "\u0414\u0435\u0432\u043E\u0447\u043A\u0430"
+    Text: "\u041F\u043E\u0433\u043E\u0432\u043E\u0440\u0438 \u0441 \u043C\u043E\u0435\u0439
+      \u043C\u0430\u043C\u043E\u0439"
   _onEndSubtitles:
     m_PersistentCalls:
       m_Calls:
@@ -2803,6 +2812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef95ef20ba99f647829dff18cb95a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndDialog: 1
 --- !u!65 &1688322300
 BoxCollider:
   m_ObjectHideFlags: 0

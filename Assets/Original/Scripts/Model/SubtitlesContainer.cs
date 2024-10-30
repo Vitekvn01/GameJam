@@ -26,14 +26,16 @@ public class SubtitlesContainer : MonoBehaviour
     {
         if (_isActivated)
         {
-            SubtitlesController.Instance.StartPrologue(_subtitlesList);
+            //SubtitlesController.Instance.StartPrologue(_subtitlesList);
+            SubtitlesController.Instance.StartPrologue(_subtitlesList, _isActivated, gameObject);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(OnEndSubtiles);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(DisactivatedSubtitlesContainer);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(Delete);
         }
         else
         {
-            SubtitlesController.Instance.StartPrologue(_disactiveSubtitlesList);
+            //SubtitlesController.Instance.StartPrologue(_disactiveSubtitlesList);
+            SubtitlesController.Instance.StartPrologue(_disactiveSubtitlesList, _isActivated, gameObject);
         }
     }
 
