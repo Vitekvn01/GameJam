@@ -5,6 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CompassController : SingletonBase<CompassController>
 {
+    [SerializeField] private GameObject _viewUIPrefab;
     [SerializeField] private GameObject _target;
     [SerializeField] private GameObject _compass;
 
@@ -16,12 +17,15 @@ public class CompassController : SingletonBase<CompassController>
     private float _timer;
 
     private CompassLogic _compassLogic;
+    private ViewUICompass _viewUICompass;
 
-    private bool _isActivated;
+    [SerializeField] private bool _isActivated;
 
     private void Start()
     {
-        _compassLogic = new CompassLogic(_compass, _target);
+        _compassLogic = new CompassLogic(_compass);
+        ViewUIInit();
+        _viewUICompass.SetGray();
     }
 
     private void Update()
@@ -30,9 +34,9 @@ public class CompassController : SingletonBase<CompassController>
         {
             _timer += Time.deltaTime;
 
-            _compassLogic.CompassIndicates();
+            _compassLogic.CompassIndicates(_target);
 
-            if (_timer >= _time || _compassLogic.CheckDistatanceToTarget(_radiusStopFind))
+            if (_timer >= _time || _compassLogic.CheckDistatanceToTarget(_target, _radiusStopFind))
             {
                 CompassDisactivated();
             }
@@ -40,6 +44,14 @@ public class CompassController : SingletonBase<CompassController>
         else
         {
             _timer += Time.deltaTime;
+            if (_timer > _reloadTime)
+            {
+                if (_viewUICompass != null)
+                {
+                    _viewUICompass.ResetColor();
+                }
+
+            }
         }
 
     }
@@ -58,6 +70,7 @@ public class CompassController : SingletonBase<CompassController>
 
     public void CompassDisactivated()
     {
+        _viewUICompass.SetGray();
         _compassLogic.CompassHide();
         _isActivated = false;
         _timer = 0;
@@ -68,13 +81,18 @@ public class CompassController : SingletonBase<CompassController>
         _target = target;
     }
 
+    private void ViewUIInit()
+    {
+        _viewUICompass = Instantiate(_viewUIPrefab).GetComponent<ViewUICompass>();
+        
+    }
+
     public void AttractEnemy()
     {
-        if(EnemyController.Instance != null)
+        if (EnemyController.Instance != null)
         {
             EnemyController.Instance.SendNearestEnemy(transform.position);
         }
-
     }
 
 }

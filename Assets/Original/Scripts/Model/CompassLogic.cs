@@ -5,10 +5,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CompassLogic
 {
-    public CompassLogic(GameObject compassView, GameObject target)
+    public CompassLogic(GameObject compassView)
     {
         _compassView = compassView;
-        _target = target;
     }
 
     private GameObject _compassView;
@@ -21,11 +20,11 @@ public class CompassLogic
 /*        _compassView.transform.localRotation = Quaternion.Euler(0, _compassView.transform.rotation.y, 0);*/
     }
 
-    public void CompassIndicates()
+    public void CompassIndicates(GameObject target)
     {
-        if (_target != null)
+        if (target != null)
         {
-            RotateToTarget(_target);
+            RotateToTarget(target);
         }
 
     }
@@ -41,9 +40,9 @@ public class CompassLogic
         _compassView.SetActive(false);
     }
 
-    public bool CheckDistatanceToTarget(float radiusStopFind)
+    public bool CheckDistatanceToTarget(GameObject target, float radiusStopFind)
     {
-       return Vector3.Distance(_compassView.transform.position, _target.transform.position) <= radiusStopFind;
+       return Vector3.Distance(_compassView.transform.position, target.transform.position) <= radiusStopFind;
     }
 
 
