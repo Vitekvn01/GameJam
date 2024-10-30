@@ -30,7 +30,6 @@ public class SubtitlesContainer : MonoBehaviour
             SubtitlesController.Instance.StartPrologue(_subtitlesList);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(OnEndSubtiles);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(DisactivatedSubtitlesContainer);
-            Destroy(this);
         }
         else
         {
