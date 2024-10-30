@@ -28,6 +28,7 @@ public class QuestPerson : MonoBehaviour, IQuestPerson
         }
         */
 
+
         if (GetComponent<SubtitlesContainer>() != null)
         {
             GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();

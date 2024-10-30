@@ -14,6 +14,8 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
 
     [SerializeField] private List<SubtitlesString> _currentSubtitlesContainer = new List<SubtitlesString>();
 
+    [SerializeField] private DialogController dialog; // !!!!
+
     /*    [SerializeField] private List<AudioClip> audioClip = new List<AudioClip>();*/
     /*    private AudioSource audioSource;*/
     /*    [SerializeField] private AudioMixer audioMixerMusic;*/
@@ -29,6 +31,7 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
     [SerializeField] public UnityEvent OnEndSubtitles = new UnityEvent();
 
     private GameObject workWhitObject; // !!!!!!!!
+    private GameObject workWhitObjectCurrent;
     private bool state;
 
     private float timer = 0;
@@ -79,55 +82,37 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
             IsLock = false;
             _panelSubtitles.SetActive(false);
 
-            //!!!!
-            if(workWhitObject != null)
+            if(workWhitObjectCurrent != null)
             {
-                workWhitObject.TryGetComponent<InteractionObject>(out InteractionObject interObject);
-                
-                if(interObject != null)
+                workWhitObjectCurrent.TryGetComponent<InteractionObject>(out InteractionObject InterObject);
+
+                if(InterObject != null)
                 {
-                    if(state == true)
-                    {
-                        interObject.ChangeState(false);
-                    }
-                    else
-                    {
-                        interObject.ChangeState(true);
-                    }
+                    InterObject.ChangeState(true);
                 }
-               
+
             }
+            
+            dialog.setDialog(false);
+
         }
     }
 
     //public void StartPrologue(List<SubtitlesString> subtitlesContainer)
     public void StartPrologue(List<SubtitlesString> subtitlesContainer, bool stateContainer, GameObject gameThing)
     {
-        // Проверка на то, запущен ли уже диалог.
-        if(_panelSubtitles == true)
-        {
-            if(workWhitObject != null)
-            {
-                workWhitObject.TryGetComponent<InteractionObject>(out InteractionObject interObject);
-
-                if (interObject != null)
-                {
-                    if (state == true)
-                    {
-                        interObject.ChangeState(false);
-                    }
-                    else
-                    {
-                        interObject.ChangeState(true);
-                    }
-                }
-            }
-        }
-
         workWhitObject = gameThing; //!!!!
         state = stateContainer;
+
+        workWhitObject.TryGetComponent<InteractionObject>(out InteractionObject IObject);
+
+        IObject.ChangeState(false);
+
         if (!IsLock)
         {
+            dialog.setDialog(true);
+
+            workWhitObjectCurrent = gameThing;
             _isPlaySubtitles = true;
             _currentSubtitlesContainer = subtitlesContainer;
             index = 0;
@@ -135,7 +120,11 @@ public class SubtitlesController : SingletonBase<SubtitlesController>
             DrawText();
             IsLock = true;
         }
-
+        else
+        {
+            IObject.ChangeState(true);
+        }
+        
     }
 
 }

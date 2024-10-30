@@ -17,9 +17,12 @@ public class Interaction : MonoBehaviour
 
     private HitController CheckHit;
 
+    private DialogController dialogController;
+
     private void Start()
     {
         CheckHit = new HitController(gameObject);
+        dialogController = GetComponentInParent<DialogController>();
     }
 
     // Вход в зону поиска + добавление обьекта в список.
@@ -95,6 +98,13 @@ public class Interaction : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
+        /*
+        if (dialogController != null)
+        {
+            if (dialogController.GetDialog() == true) return; // !!!!!!!
+        }
+        */
+
         if (Physics.Raycast(ray, out hit))
         {
             // Проверяем наличие интерфейса IPickup.
@@ -143,10 +153,12 @@ public class Interaction : MonoBehaviour
                             else if (person != null)
                             {
                                 CheckHit.Hit(person, objects, i);
+                                /*
                                 if(interactionObject != null)
                                 {
                                     interactionObject.ChangeState(false);
                                 }
+                                */
                             }
                                 // Обработка диалогов.
                                 
