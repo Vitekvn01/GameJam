@@ -28,6 +28,8 @@ public class QuestDrop : MonoBehaviour, IDrop
             // Получаем обьект который запускает анимацию.
             QuestComplete questComplete = GetComponent<QuestComplete>();
             questComplete.FinishQuest();
+
+            gameObject.GetComponent<InteractionObject>().ChangeState(false);
         }
             
     }

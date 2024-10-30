@@ -25,7 +25,6 @@ public class SubtitlesContainer : MonoBehaviour
     {
         if (_isActivated)
         {
-            Debug.Log("PlaySubtitlesContainer");
             SubtitlesController.Instance.StartPrologue(_subtitlesList);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(OnEndSubtiles);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(DisactivatedSubtitlesContainer);

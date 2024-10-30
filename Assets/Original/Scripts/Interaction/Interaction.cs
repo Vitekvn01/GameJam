@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interaction : MonoBehaviour
 {
@@ -116,6 +118,7 @@ public class Interaction : MonoBehaviour
                             IHide hide = hit.collider.gameObject.GetComponent<IHide>();
                             IDoorController doorController = hit.collider.gameObject.GetComponent<IDoorController>();
                             IQuestPerson person = hit.collider.gameObject.GetComponent<IQuestPerson>();
+                            InteractionObject interactionObject = hit.collider.gameObject.GetComponent<InteractionObject>();
 
                             if (pickupHit != null)
                             {
@@ -129,15 +132,19 @@ public class Interaction : MonoBehaviour
                             }
                             else if (hide != null)
                             {
+                                // Обработка залезания в место пряток.
                                 CheckHit.Hit(hide, objects, i);
                             }
                             else if (doorController != null)
                             {
+                                // Обработка открытия дверей.
                                 CheckHit.Hit(doorController, objects, i);
                             }
                             else if (person != null)
                             {
+                                // Обработка диалогов.
                                 CheckHit.Hit(person, objects, i);
+                                interactionObject.ChangeState(false);
                             }
                         }
                     }
