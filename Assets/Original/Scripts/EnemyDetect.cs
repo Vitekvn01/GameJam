@@ -32,6 +32,7 @@ public class EnemyDetect : MonoBehaviour
             if (hit.collider.gameObject == player)
             {
                 angry = true;
+                _aIController.MoveToPos(player.transform.position);
             }
 
 
