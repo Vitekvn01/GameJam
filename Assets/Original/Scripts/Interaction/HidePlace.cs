@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HidePlace : MonoBehaviour, IHide
 {
     [SerializeField] private GameObject cameraHide;
     [SerializeField] private Transform cameraPosition;
+
+    [SerializeField] private GameObject canvasInteraction;
+
+    private TextMeshProUGUI textMeshProUGUI;
 
     private GameObject HideCam;
 
@@ -15,6 +20,8 @@ public class HidePlace : MonoBehaviour, IHide
 
     private float timer;
 
+    private InteractionUIController mainObjectInteractionCanvas;
+
     public void Hide(GameObject mainObject)
     {
         playerObject = mainObject;
@@ -23,6 +30,10 @@ public class HidePlace : MonoBehaviour, IHide
         {
             playerObject.SetActive(false);
             inHide = true;
+
+            mainObjectInteractionCanvas = mainObject.GetComponentInChildren<InteractionUIController>();
+
+            mainObjectInteractionCanvas.SetUiController("Е - Вылезти");
         }
 
         HideCam = Instantiate(cameraHide, cameraPosition);

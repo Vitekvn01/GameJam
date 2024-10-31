@@ -29,6 +29,15 @@ public class InteractionUIController : MonoBehaviour
         ReycastInteraction();
     }
 
+
+    public void SetUiController(string stringText)
+    {
+        if(text != null)
+        {
+            text.text = stringText;
+        }
+    }
+
     private void ReycastInteraction()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

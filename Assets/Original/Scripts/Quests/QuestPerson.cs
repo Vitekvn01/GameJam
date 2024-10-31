@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class QuestPerson : MonoBehaviour, IQuestPerson
 {
+
+
+
     public void dialog()
     {
         if (GetComponent<SubtitlesContainer>() != null)

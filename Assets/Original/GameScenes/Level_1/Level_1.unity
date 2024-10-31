@@ -1852,6 +1852,9 @@ GameObject:
   - component: {fileID: 1608276488}
   - component: {fileID: 1608276487}
   - component: {fileID: 1608276491}
+  - component: {fileID: 1608276492}
+  - component: {fileID: 1608276493}
+  - component: {fileID: 1608276494}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -1970,6 +1973,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1608276492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608276486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f49f97108e8820d40ad13c9a34cb4bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isActivated: 0
+  _subtitlesList: []
+  _disactiveSubtitlesList:
+  - Name: "\u0410\u0431\u043E\u0431\u0430"
+    Text: "\u042F \u043D\u0435 \u0433\u0438\u0442, \u043D\u043E \u044F \u0437\u0430\u043A\u0440\u044B\u0442."
+  _onEndSubtitles:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1608276493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608276486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5392b81e8b7aa0488c8fc762cf4336f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkState: 1
+--- !u!114 &1608276494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608276486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef95ef20ba99f647829dff18cb95a63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1746623464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,7 +2187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99f3b1ffad64a240ae9eb3cbadbddf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationQuestComplite: {fileID: 1608276491}
+  questObject: {fileID: 1608276486}
 --- !u!4 &1761743696
 Transform:
   m_ObjectHideFlags: 0

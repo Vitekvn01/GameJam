@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class QuestComplete : MonoBehaviour
 {
-    [SerializeField] private Animator animationQuestComplite;
+    //[SerializeField] private Animator animationQuestComplite;
+
+    [SerializeField] private GameObject questObject;
+    private Animator animationQuestComplite;
 
     public void FinishQuest()
     {
-        // ¬ключаем анимацию.
-        animationQuestComplite.enabled = true;
+        animationQuestComplite = questObject.GetComponent<Animator>();
+
+        if (animationQuestComplite != null)
+        {
+            // ¬ключаем анимацию.
+            animationQuestComplite.enabled = true;
+        }
+
+        if (questObject.TryGetComponent<InteractionObject>(out InteractionObject interactionObject))
+        {
+            Destroy(interactionObject);
+        }
+
+
     }
 }
