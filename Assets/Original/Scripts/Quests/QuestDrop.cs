@@ -13,8 +13,6 @@ public class QuestDrop : MonoBehaviour, IDrop
 
     public void drop(Inventory inventory)
     {
-        Debug.Log("zashly");
-
         if (inventory.CheckList(QuestNameThing) == true )
         {
             // ”ничтожаем из списка квестовый предмет.
