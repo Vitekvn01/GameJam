@@ -34,7 +34,7 @@ public class HidePlace : MonoBehaviour, IHide
         {
             timer += 0.1f;
 
-            if (Input.GetKeyDown(KeyCode.F) && (timer > 0.1f))
+            if (Input.GetKeyDown(KeyCode.E) && (timer > 0.1f))
             {
                 ExitHide();
                 timer = 0;

@@ -125,7 +125,6 @@ public class Interaction : MonoBehaviour
                             // Проверяем подходящий ли обьект, записываем его.
                             IPickup pickupHit = hit.collider.gameObject.GetComponent<IPickup>();
                             IDrop dropHit = hit.collider.gameObject.GetComponent<IDrop>();
-                            IHide hide = hit.collider.gameObject.GetComponent<IHide>();
                             IDoorController doorController = hit.collider.gameObject.GetComponent<IDoorController>();
                             IQuestPerson person = hit.collider.gameObject.GetComponent<IQuestPerson>();
                             InteractionObject interactionObject = hit.collider.gameObject.GetComponent<InteractionObject>();
@@ -139,11 +138,6 @@ public class Interaction : MonoBehaviour
                             {
                                 // Обработка поподания по обьекту.
                                 CheckHit.Hit(dropHit, objects, i);
-                            }
-                            else if (hide != null)
-                            {
-                                // Обработка залезания в место пряток.
-                                CheckHit.Hit(hide, objects, i);
                             }
                             else if (doorController != null)
                             {
@@ -160,15 +154,22 @@ public class Interaction : MonoBehaviour
                                 }
                                 */
                             }
-                                // Обработка диалогов.
-                                
-                                
+                        }
+                        else if (Input.GetKeyDown(KeyCode.E))// Отдельная кнопка на прятки.
+                        {
+                            IHide hide = hit.collider.gameObject.GetComponent<IHide>();
+
+                            if (hide != null)
+                            {
+                                // Обработка залезания в место пряток.
+                                CheckHit.Hit(hide, objects, i);
                             }
                         }
                     }
                 }
             }
         }
+    }
  
     private void CheckObjects()
     {

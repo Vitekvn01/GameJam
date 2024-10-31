@@ -1,13 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class InteractionUIController : MonoBehaviour
 {
     [SerializeField] private GameObject canvasInteraction;
+
+    private TextMeshProUGUI text;
 
     private GameObject canvas;
 
@@ -17,40 +21,22 @@ public class InteractionUIController : MonoBehaviour
     private void Start()
     {
         dialogController = GetComponentInParent<DialogController>();
+        text = canvasInteraction.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Update()
     {
         ReycastInteraction();
-
-        Debug.Log(dialogController.GetDialog());
-
-        /*
-        if (dialogController != null)
-        {
-            if (dialogController.GetDialog() == true)
-            {
-                canvasInteraction.SetActive(false);
-            }
-        }
-        */
-
     }
 
     private void ReycastInteraction()
     {
-        /*
-        if (dialogController != null)
-        {
-            if (dialogController.GetDialog() == true) return;
-        }
-        */
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit,distance))
         {
+            // Проверяем, что обьект надо отображать.
             if(hit.collider.gameObject.TryGetComponent<InteractionObject>(out InteractionObject interactionObject))
             {
                 if(dialogController.GetDialog() == true)
@@ -65,6 +51,20 @@ public class InteractionUIController : MonoBehaviour
                 if(interactionObject.CheckState() == true)
                 {
                     canvasInteraction.SetActive(true);
+
+                    // Изменение текста, если надо прятаться и возвращаем обратно если нет.
+                    if (hit.collider.gameObject.TryGetComponent<HidePlace>(out HidePlace hide))
+                    {
+                        if (text != null)
+                        {
+                            text.text = "E - Спрятаться";
+                        }
+                    }
+                    else
+                    {
+                        text.text = "F - Взаимодействие";
+                    }
+                        
                 }
                 else if (interactionObject.CheckState() == false)
                 {
