@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-
+using UnityEngine.SceneManagement;
 
 public enum MovementState
 {
@@ -84,6 +83,14 @@ public class AIController : MonoBehaviour
     private void OnDisable()
     {
         UnsubscribeEvent();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.GetComponent<PlayerController>() != null)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
 
