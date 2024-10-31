@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PickupObject : MonoBehaviour, IPickup
 {
-    static List<PickupObject> _pickupObjects = new List<PickupObject>();
+    public static List<PickupObject> PickupObjects = new List<PickupObject>();
 
     private void Start()
     {
-        _pickupObjects.Add(this);
+        PickupObjects.Add(this);
     }
 
     public void pickup(Inventory inventory)
@@ -25,6 +25,6 @@ public class PickupObject : MonoBehaviour, IPickup
 
     private void OnDisable()
     {
-        _pickupObjects.Remove(this);
+        PickupObjects.Remove(this);
     }
 }

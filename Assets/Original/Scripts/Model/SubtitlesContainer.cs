@@ -32,7 +32,7 @@ public class SubtitlesContainer : MonoBehaviour
             SubtitlesController.Instance.OnEndSubtitles.AddListener(DisactivatedSubtitlesContainer);
             SubtitlesController.Instance.OnEndSubtitles.AddListener(Delete);
         }
-        else
+        else if(SubtitlesController.Instance.IsLock == false)
         {
             //SubtitlesController.Instance.StartPrologue(_disactiveSubtitlesList);
             SubtitlesController.Instance.StartPrologue(_disactiveSubtitlesList, _isActivated, gameObject);
