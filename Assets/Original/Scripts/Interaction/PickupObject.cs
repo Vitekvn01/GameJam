@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PickupObject : MonoBehaviour, IPickup
 {
+    static List<PickupObject> _pickupObjects = new List<PickupObject>();
+
+    private void Start()
+    {
+        _pickupObjects.Add(this);
+    }
+
     public void pickup(Inventory inventory)
     {
         if (gameObject.TryGetComponent(out SubtitlesContainer Subtitles))
@@ -16,4 +23,8 @@ public class PickupObject : MonoBehaviour, IPickup
         Destroy(gameObject);
     }
 
+    private void OnDisable()
+    {
+        _pickupObjects.Remove(this);
+    }
 }
