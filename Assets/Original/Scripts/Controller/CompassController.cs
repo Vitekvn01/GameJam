@@ -30,8 +30,11 @@ public class CompassController : SingletonBase<CompassController>
 
     private void Update()
     {
+        FindObject();
+
         if (_isActivated)
         {
+
             _timer += Time.deltaTime;
 
             _compassLogic.CompassIndicates(_target);
@@ -84,7 +87,7 @@ public class CompassController : SingletonBase<CompassController>
     private void ViewUIInit()
     {
         _viewUICompass = Instantiate(_viewUIPrefab).GetComponent<ViewUICompass>();
-        
+
     }
 
     public void AttractEnemy()
@@ -95,4 +98,23 @@ public class CompassController : SingletonBase<CompassController>
         }
     }
 
+    public void FindObject()
+    {
+        GameObject nearestQuestObject = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (PickupObject pickupObject in PickupObject.PickupObjects)
+        {
+            float distanceToPlayer = Vector3.Distance(_compass.transform.position, pickupObject.gameObject.transform.position);
+
+            if (distanceToPlayer < minDistance)
+            {
+                minDistance = distanceToPlayer;
+                nearestQuestObject = pickupObject.gameObject;
+            }
+        }
+
+        _target = nearestQuestObject;
+    }
 }
+
