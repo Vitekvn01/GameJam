@@ -8,7 +8,7 @@ public class QuestComplete : MonoBehaviour
 
     [SerializeField] private GameObject questObject;
     private Animator animationQuestComplite;
-
+  
     public void FinishQuest()
     {
         animationQuestComplite = questObject.GetComponent<Animator>();

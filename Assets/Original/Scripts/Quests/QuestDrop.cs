@@ -81,12 +81,12 @@ public class QuestDrop : MonoBehaviour, IDrop
 
                     gameObject.GetComponent<InteractionObject>().ChangeState(false);
                 }
-                else
+            }
+            else
+            {
+                if (GetComponent<SubtitlesContainer>() != null)
                 {
-                    if (GetComponent<SubtitlesContainer>() != null)
-                    {
-                        GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
-                    }
+                    GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
                 }
             }
         }

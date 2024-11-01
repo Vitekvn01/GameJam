@@ -10,12 +10,13 @@ public class QuestPerson : MonoBehaviour, IQuestPerson
 
     public void dialog()
     {
+        
         if (endDialog == true)
         {
             canvasObject.SetActive(true);
             return;
         }
-
+        
         if (GetComponent<SubtitlesContainer>() != null)
         {
             GetComponent<SubtitlesContainer>().PlaySubtitlesContainer();
