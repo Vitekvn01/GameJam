@@ -15,7 +15,7 @@ public class AIController : MonoBehaviour
 {
     private MovementState _movementState;
 
-
+    [SerializeField] private GameObject _UIdeadPanel;
     [SerializeField] private Transform[] _waypoints;
     [SerializeField] private float _distanceComplete = 2;
 
@@ -89,7 +89,10 @@ public class AIController : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 0;
+            _UIdeadPanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            /*SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);*/
         }
     }
 }

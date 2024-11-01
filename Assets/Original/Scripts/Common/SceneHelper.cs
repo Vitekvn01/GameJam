@@ -8,5 +8,6 @@ public class SceneHelper : SingletonBase<SceneHelper>
     public void LoadScene(int indexScene)
     {
         SceneManager.LoadScene(indexScene);
+        Time.timeScale = 1.0f;
     }
 }
