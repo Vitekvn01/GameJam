@@ -19,6 +19,13 @@ public class EnemyDetect : MonoBehaviour
 
     private void Update()
     {
+
+        if (player.activeSelf == false)
+        {
+            angry = false;
+        }
+
+
         RaycastHit hit;
         // Рейкаст для отслеживания.
         Ray ray = new Ray(gameObject.transform.position, transform.forward);
@@ -32,12 +39,17 @@ public class EnemyDetect : MonoBehaviour
             if (hit.collider.gameObject == player)
             {
                 angry = true;
-                _aIController.MoveToPos(player.transform.position);
+                //_aIController.MoveToPos(player.transform.position);
             }
 
 
             Debug.DrawLine(ray.origin, hit.point, Color.red);   // DBG
             Debug.Log(angry);                                   // DBG
+        }
+
+        if(angry == true)
+        {
+            _aIController.MoveToPos(player.transform.position);
         }
     }
 }
