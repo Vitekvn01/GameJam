@@ -94,27 +94,32 @@ public class CompassController : SingletonBase<CompassController>
     {
         if (EnemyController.Instance != null)
         {
-            EnemyController.Instance.SendNearestEnemy(transform.position);
+            //EnemyController.Instance.SendNearestEnemy(transform.position);
         }
     }
 
     public void FindObject()
     {
-        GameObject nearestQuestObject = null;
-        float minDistance = Mathf.Infinity;
+             GameObject nearestQuestObject = null;
 
-        foreach (PickupObject pickupObject in PickupObject.PickupObjects)
-        {
-            float distanceToPlayer = Vector3.Distance(_compass.transform.position, pickupObject.gameObject.transform.position);
+            float minDistance = Mathf.Infinity;
 
-            if (distanceToPlayer < minDistance)
+            foreach (PickupObject pickupObject in PickupObject.PickupObjects)
             {
-                minDistance = distanceToPlayer;
-                nearestQuestObject = pickupObject.gameObject;
-            }
-        }
+                float distanceToPlayer = Vector3.Distance(_compass.transform.position, pickupObject.gameObject.transform.position);
 
-        _target = nearestQuestObject;
+                if (distanceToPlayer < minDistance)
+                {
+                    minDistance = distanceToPlayer;
+                    nearestQuestObject = pickupObject.gameObject;
+                }
+            }
+
+        if (nearestQuestObject != null)
+        {
+            _target = nearestQuestObject;
+        }
+            
     }
 }
 
