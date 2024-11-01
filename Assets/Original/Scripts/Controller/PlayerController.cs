@@ -8,6 +8,8 @@ public class PlayerController : SingletonBase<PlayerController>
     [SerializeField] private GameObject _pauseControllerPrefab;
     private PauseController _pauseController;
 
+/*    [SerializeField] AudioSource _audioSource;*/
+
     [SerializeField] private float _speed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _rotationSensetive;
@@ -38,6 +40,8 @@ public class PlayerController : SingletonBase<PlayerController>
 
         Rotation();
 
+/*        SoundStep();*/
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             CompassActivated();
@@ -64,6 +68,15 @@ public class PlayerController : SingletonBase<PlayerController>
     {
         _movementLogic.Movement(_normalizeDirZ, _normalizeDirX, _speed, _isSpeedUp);
     }
+
+/*    private void SoundStep()
+    {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            Debug.Log("Step");
+            _audioSource.Play();
+        }
+    }*/
 
     private void Rotation()
     {
