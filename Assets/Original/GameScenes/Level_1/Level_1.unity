@@ -3769,7 +3769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endDialog: 1
-  canvasObject: {fileID: 0}
+  canvasObject: {fileID: 652109626}
 --- !u!1 &333817844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9019857918847245623, guid: 8136f79220d4f7e43a6224dffabf0455, type: 3}
@@ -13025,7 +13025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &652109627
 MonoBehaviour:
   m_ObjectHideFlags: 0
