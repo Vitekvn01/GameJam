@@ -15,6 +15,11 @@ public class EnemyDetect : MonoBehaviour
     private void Start()
     {
         _aIController = GetComponent<AIController>();
+
+        if(_aIController == null) // !!!!!!!!!!!!!
+        {
+            _aIController = GetComponentInParent<AIController>();
+        }
     }
 
     private void Update()

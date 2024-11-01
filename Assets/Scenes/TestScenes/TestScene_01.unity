@@ -311,6 +311,7 @@ Transform:
   - {fileID: 1246093290}
   - {fileID: 1972782280}
   - {fileID: 1418130863}
+  - {fileID: 1369107843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 39.53, z: 0}
 --- !u!1 &265295588
@@ -1378,6 +1379,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e14d2426c425f64f828b1f5281d4f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1369107842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369107843}
+  - component: {fileID: 1369107844}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369107843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369107842}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.5663016, z: -0, w: 0.8241981}
+  m_LocalPosition: {x: 0.042, y: 0.701, z: 0.623}
+  m_LocalScale: {x: 0.42724, y: 0.42724, z: 0.42724}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 59477811}
+  m_LocalEulerAnglesHint: {x: 0, y: -68.985, z: 0}
+--- !u!114 &1369107844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369107842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51a72976fc8ba7499981a681c3a5d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1573275492}
+  distance: 33
 --- !u!1 &1418130862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,9 +2317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0aa9910b82b1e40b96f25275f84320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuestNameThing: BearBlack
+  QuestNameThingAll: []
   prefabQuestThing: {fileID: 1828282043891858455, guid: e00f0693e3c4d4c468657dc7ba21c091, type: 3}
   spawnPosition: {fileID: 721731537}
+  destroyObject: {fileID: 0}
 --- !u!114 &2025391252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,7 +2333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99f3b1ffad64a240ae9eb3cbadbddf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationQuestComplite: {fileID: 1099398128}
+  questObject: {fileID: 0}
 --- !u!1 &2111738417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraHide: {fileID: 6052483155800007744, guid: 03436562738de3c469faa9917fe5545d, type: 3}
   cameraPosition: {fileID: 5053055077714583863}
+  canvasInteraction: {fileID: 0}
 --- !u!4 &2428908813414946639
 Transform:
   m_ObjectHideFlags: 0
