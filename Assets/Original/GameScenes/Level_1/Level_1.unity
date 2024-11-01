@@ -28301,6 +28301,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 2.77548
       objectReference: {fileID: 0}
+    - target: {fileID: 2163939986409023568, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
+      propertyPath: canvasInteraction
+      value: 
+      objectReference: {fileID: 644174993}
     - target: {fileID: 2834663557905336697, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -28395,15 +28399,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7728288831279439828, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.35
+      value: 9.2
       objectReference: {fileID: 0}
     - target: {fileID: 7728288831279439828, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.72
+      value: 3.911
       objectReference: {fileID: 0}
     - target: {fileID: 7728288831279439828, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.59
+      value: -9.69
       objectReference: {fileID: 0}
     - target: {fileID: 7728288831279439828, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
       propertyPath: m_LocalRotation.w
