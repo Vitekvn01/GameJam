@@ -30,14 +30,21 @@ public class CompassController : SingletonBase<CompassController>
 
     private void Update()
     {
-        FindObject();
+        if (PickupObject.PickupObjects != null)
+        {
+            FindObject();
+        }
+
 
         if (_isActivated)
         {
 
             _timer += Time.deltaTime;
+            if (_target != null)
+            {
+                _compassLogic.CompassIndicates(_target);
+            }
 
-            _compassLogic.CompassIndicates(_target);
 
             if (_timer >= _time || _compassLogic.CheckDistatanceToTarget(_target, _radiusStopFind))
             {
