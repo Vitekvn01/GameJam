@@ -4081,7 +4081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endDialog: 1
-  canvasObject: {fileID: 296529314}
+  canvasObject: {fileID: 0}
 --- !u!1 &333817844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9019857918847245623, guid: 8136f79220d4f7e43a6224dffabf0455, type: 3}
@@ -10609,7 +10609,7 @@ PrefabInstance:
     - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
       propertyPath: dialog
       value: 
-      objectReference: {fileID: 576565003}
+      objectReference: {fileID: 576565005}
     - target: {fileID: 50133410441357561, guid: ce577836916a74543bb950a9fa8066fd, type: 3}
       propertyPath: _endTime
       value: 3
@@ -11966,6 +11966,17 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576565002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b423d51b101373e43ae39a191f18d682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &576565005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4696144352084070571, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
+  m_PrefabInstance: {fileID: 1910401562}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576565002}
   m_Enabled: 1
@@ -23088,25 +23099,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09932805, y: 2.0000002, z: 2.8000002}
   m_Center: {x: -0.1496574, y: 1.0000001, z: 1.4000001}
---- !u!1 &1498454896 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6052877148037650788, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
-  m_PrefabInstance: {fileID: 1910401562}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1498454900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498454896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6bb39918394d4b46b9cc7d2945ed68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasInteraction: {fileID: 644174993}
-  distance: 2
 --- !u!1 &1498850939
 GameObject:
   m_ObjectHideFlags: 0
@@ -28625,9 +28617,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6020781273117721376, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 576565003}
-    - targetCorrespondingSourceObject: {fileID: 6052877148037650788, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1498454900}
   m_SourcePrefab: {fileID: 100100000, guid: ea116b6718fda404396c23ee1f5cd9cc, type: 3}
 --- !u!1 &1918486429 stripped
 GameObject:
